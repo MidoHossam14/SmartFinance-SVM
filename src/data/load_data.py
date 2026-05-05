@@ -49,16 +49,16 @@ def load_data(
     return df
 
 
-def load_processed_data(
+def load_cleaned_data(
     file_path: str = None
 ) -> pd.DataFrame:
     """
-    Load processed dataset (after preprocessing).
+    Load cleaned dataset.
 
     Parameters:
     ----------
     file_path : str
-        Path to processed dataset
+        Path to cleaned dataset
 
     Returns:
     -------
@@ -68,12 +68,12 @@ def load_processed_data(
     if file_path is None:
         file_path = os.path.join(
             os.path.dirname(__file__),
-            "../../data/processed/processed_data.csv"
+            "../../data/cleaned/credit_card_cleaned.csv"
         )
 
     file_path = os.path.abspath(file_path)
 
     if not os.path.exists(file_path):
-        raise FileNotFoundError(f"Processed dataset not found at: {file_path}")
+        raise FileNotFoundError(f"Cleaned dataset not found at: {file_path}")
 
     return pd.read_csv(file_path)
